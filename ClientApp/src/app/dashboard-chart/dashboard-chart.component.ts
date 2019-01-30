@@ -17,20 +17,7 @@ export class DashboardChartComponent implements OnInit, OnChanges {
    private updateFlag: Boolean;
 
    private readonly MAX_DATA_POINTS = 30;
-
-   private colors = { 
-      'scarlet':'#ff1a1a',
-      'dark_blue': '#000099',
-      'lawn_green': '#009900',
-      'deep-yellow': '#ffaa00',
-      'crimson': '#ff1a8c',
-      'light_blue': '#33ccff',
-      'medium_green': '#33cc33',
-      'deep_red': '#cc3300',
-      'purple': '#9900cc',
-      'sienna': '#bf8040'
-   };
-
+ 
    constructor () {}
    
    @Input()
@@ -41,6 +28,9 @@ export class DashboardChartComponent implements OnInit, OnChanges {
 
    @Input()
    gameId: string;
+
+   @Input()
+   seriesColor: string;
 
    @Input()
    data: GameData[];
@@ -161,7 +151,7 @@ export class DashboardChartComponent implements OnInit, OnChanges {
          for (let i = 0; i < this.gameId.length; i++) {
             let series = {
                name: this.gameName[i],
-               color: this.getRandomColor(),
+               color: this.seriesColor[i],
                data: []
             };
             this.chartOptions.series.push(series);
@@ -170,17 +160,11 @@ export class DashboardChartComponent implements OnInit, OnChanges {
       } else {
          let series = {
             name: this.gameName,
-            color: this.getRandomColor(),
+            color: this.seriesColor,
             data: []
          };
          this.chartOptions.series.push(series);
       } 
-   }
-
-   private getRandomColor(): string {
-      let num_colors = Object.values(this.colors).length;
-      let index = Math.floor(Math.random() * num_colors) - 1; 
-      return Object.values(this.colors)[index];
-   }
+   } 
 
 }
