@@ -12,9 +12,9 @@ import * as Highcharts from 'highcharts';
 })
 export class DashboardChartComponent implements OnInit, OnChanges {
  
-   private Highcharts = Highcharts;
-   private chartOptions; 
-   private updateFlag: Boolean;
+   Highcharts = Highcharts;
+   chartOptions; 
+   updateFlag: Boolean;
 
    private readonly MAX_DATA_POINTS = 30;
  

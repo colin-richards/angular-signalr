@@ -11,6 +11,7 @@
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
     <RootNamespace>angular_signalr</RootNamespace>
+    <UserSecretsId>fca5ffae-1e3c-40e8-8c5d-39a9ddcd16f6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
